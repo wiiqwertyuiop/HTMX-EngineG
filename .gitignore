@@ -1,3 +1,4 @@
 *.exe
 go.sum
 go.mod
+**/wasm_exec.js
