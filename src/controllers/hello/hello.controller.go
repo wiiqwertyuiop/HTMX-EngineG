@@ -1,7 +1,8 @@
 package controller
 
 import (
-	controller "htmx-engineg/src/models/controller"
+	controller "htmx-engineg/src/common/controller"
+	"htmx-engineg/src/common/renderer"
 	"net/http"
 )
 
@@ -10,7 +11,7 @@ var Controller = controller.Controller{
 	Children: []controller.Path{
 
 		controller.Get("/", func(w http.ResponseWriter, r *http.Request) {
-			controller.RenderPageView(w, "hello/hello.html", "World")
+			renderer.RenderPageView(w, "hello/hello.html", "World")
 		}),
 
 		controller.Get("/hello", func(w http.ResponseWriter, r *http.Request) {

@@ -18,6 +18,8 @@ func main() {
 	// Register routes
 	for _, route := range registery.ControllerRegistery {
 		r.Route(route.Route, func(r chi.Router) {
+			// TODO: Check if needs referer
+			// TODO: check if needs auth
 			for _, path := range route.Children {
 				path(r)
 			}
