@@ -7,7 +7,7 @@ import (
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 
-	registery "htmx-engineg/endpoints"
+	registery "htmx-engineg/src"
 )
 
 func main() {

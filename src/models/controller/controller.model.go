@@ -16,7 +16,7 @@ type Controller struct {
 }
 
 func RenderPageView(w io.Writer, name string, data ...interface{}) error {
-	t, _ := template.ParseFiles("endpoints/views/" + name)
+	t, _ := template.ParseFiles("src/views/" + name)
 	if len(data) == 0 {
 		return t.Execute(w, nil)
 	}

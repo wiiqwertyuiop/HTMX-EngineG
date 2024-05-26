@@ -1,11 +1,11 @@
-package hello_controller
+package controller
 
 import (
-	controller "htmx-engineg/endpoints/controllers"
+	controller "htmx-engineg/src/models/controller"
 	"net/http"
 )
 
-var HelloController = controller.Controller{
+var Controller = controller.Controller{
 	Route: "/hello",
 	Children: []controller.Path{
 
