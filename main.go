@@ -34,5 +34,5 @@ func main() {
 	r.Handle("/*", fs)
 
 	fmt.Println("Server is now running...")
-	http.ListenAndServe("localhost:8080", r)
+	http.ListenAndServe(":8080", r)
 }
