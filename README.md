@@ -1,4 +1,4 @@
-** Go MVC + HTMX Server
+# Go MVC + HTMX Mini-Server
 
 Little mini Go server. Has a couple feautres I like:
 
