@@ -10,7 +10,9 @@ import (
 )
 
 // Example
-var exampleContact = contact.Contact{FirstName: "Joe", LastName: "Blow", Email: "joe@blow.com"}
+var exampleContact = contact.Contact{
+	FirstName: "Joe", LastName: "Blow", Email: "joe@blow.com",
+}
 
 var Controller = controller.Controller{
 	Route:        "/contact",
