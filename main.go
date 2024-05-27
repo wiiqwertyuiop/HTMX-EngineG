@@ -8,6 +8,7 @@ import (
 	"github.com/go-chi/chi/v5/middleware"
 
 	registery "htmx-engineg/src"
+	myMiddleware "htmx-engineg/src/common/middleware"
 )
 
 func main() {
@@ -18,8 +19,10 @@ func main() {
 	// Register routes
 	for _, route := range registery.ControllerRegistery {
 		r.Route(route.Route, func(r chi.Router) {
-			// TODO: Check if needs referer
-			// TODO: check if needs auth
+			// TODO: auth
+			if route.NeedsReferer {
+				r.Use(myMiddleware.RefererMiddleware)
+			}
 			for _, path := range route.Children {
 				path(r)
 			}

@@ -11,7 +11,7 @@ var Controller = controller.Controller{
 	Children: []controller.Path{
 
 		controller.Get("/", func(w http.ResponseWriter, r *http.Request) {
-			renderer.RenderPageView(w, "hello/hello.html", "World")
+			renderer.RenderView(w, "hello/hello.html", "World")
 		}),
 
 		controller.Get("/hello", func(w http.ResponseWriter, r *http.Request) {

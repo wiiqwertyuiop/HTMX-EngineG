@@ -2,7 +2,7 @@ package registery
 
 import (
 	c "htmx-engineg/src/common/controller"
-	editController "htmx-engineg/src/controllers/edit"
+	editController "htmx-engineg/src/controllers/contact"
 	helloController "htmx-engineg/src/controllers/hello"
 )
 
