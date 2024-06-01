@@ -1,20 +1,20 @@
 package controller
 
 import (
-	controller "htmx-engineg/src/common/controller"
+	c "htmx-engineg/src/common/controller"
 	"htmx-engineg/src/common/renderer"
 	"net/http"
 )
 
-var Controller = controller.Controller{
+var Controller = c.Controller{
 	Route: "/hello",
-	Children: []controller.Path{
+	Children: []c.Path{
 
-		controller.Get("/", func(w http.ResponseWriter, r *http.Request) {
+		c.Get("/", func(w http.ResponseWriter, r *http.Request) {
 			renderer.RenderView(w, "hello/hello.html", "World")
 		}),
 
-		controller.Get("/hello", func(w http.ResponseWriter, r *http.Request) {
+		c.Get("/hello", func(w http.ResponseWriter, r *http.Request) {
 			w.Write([]byte("Hello x2!"))
 		}),
 	},
