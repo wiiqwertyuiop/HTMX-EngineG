@@ -11,4 +11,4 @@ Based off of ideas from NestJS and using MVC principles, this mini server able t
 
 WIP, but looking forward to experimenting and using this more in the future.
 
-I also have a typescript version here: https://github.com/wiiqwertyuiop/Express-Engine/tree/master
+I also have a typescript version here: https://github.com/wiiqwertyuiop/Express-Engine
