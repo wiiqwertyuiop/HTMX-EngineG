@@ -30,7 +30,7 @@ func main() {
 	}
 
 	// Serve static files
-	r.Handle("/*", http.HandlerFunc(myMiddleware.FileServer))
+	r.Handle("/*", myMiddleware.FileServer())
 
 	fmt.Println("Server is now running...")
 	http.ListenAndServe(":8080", r)
