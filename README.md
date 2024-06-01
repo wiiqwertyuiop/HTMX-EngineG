@@ -1,6 +1,6 @@
-# Go MVC + HTMX Mini-Server
+# Go Chi MVC + HTMX Mini-Server
 
-Little mini Go server. Has a couple feautres I like:
+Based off of ideas from NestJS and using MVC principles, this mini server able to act as a standalone front+backend. Featuring
 
 1) Serving static files
 2) Wrapper around go-chi for easy routing. You can now more directly use the idea of "controllers", with easy pathing.
@@ -10,3 +10,5 @@ Little mini Go server. Has a couple feautres I like:
 6) And finally... good old fashion Go templates of course!
 
 WIP, but looking forward to experimenting and using this more in the future.
+
+I also have a typescript version here: https://github.com/wiiqwertyuiop/Express-Engine/tree/master
