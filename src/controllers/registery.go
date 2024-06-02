@@ -1,4 +1,4 @@
-package registery
+package regiserty
 
 import (
 	c "htmx-engineg/src/common/controller"

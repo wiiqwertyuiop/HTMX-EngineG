@@ -7,8 +7,8 @@ import (
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 
-	registery "htmx-engineg/src"
 	myMiddleware "htmx-engineg/src/common/middleware"
+	regiserty "htmx-engineg/src/controllers"
 )
 
 func main() {
@@ -17,7 +17,7 @@ func main() {
 	r.Use(middleware.Logger)
 
 	// Register routes
-	for _, route := range registery.ControllerRegistery {
+	for _, route := range regiserty.ControllerRegistery {
 		r.Route(route.Route, func(r chi.Router) {
 			// TODO: auth
 			if route.NeedsReferer {
