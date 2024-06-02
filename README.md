@@ -12,3 +12,7 @@ Based off of ideas from NestJS and using MVC principles, this mini server able t
 WIP, but looking forward to experimenting and using this more in the future.
 
 I also have a typescript version here: https://github.com/wiiqwertyuiop/Express-Engine
+
+## How to run
+
+Simply do a `go build src/main.go`, or if you have [modd](https://github.com/cortesi/modd) installed, you can do `modd` to start the server.
