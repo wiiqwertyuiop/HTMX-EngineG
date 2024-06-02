@@ -14,16 +14,17 @@ type Contact struct {
 
 // For demo purposes, uses cookie as "database"
 func GetContact(r *http.Request) Contact {
-	if cookie, err := r.Cookie("contact"); err == nil {
-		saved := Contact{}
-		decoded, _ := url.QueryUnescape(cookie.Value)
-		json.Unmarshal([]byte(decoded), &saved)
-		return saved
+	cookie, err := r.Cookie("contact")
+	if err != nil {
+		return Contact{
+			FirstName: "Joe", LastName: "Blow", Email: "joe@blow.com",
+		}
 	}
-	// Return default contact
-	return Contact{
-		FirstName: "Joe", LastName: "Blow", Email: "joe@blow.com",
-	}
+	// Decode saved contact
+	saved := Contact{}
+	decoded, _ := url.QueryUnescape(cookie.Value)
+	json.Unmarshal([]byte(decoded), &saved)
+	return saved
 }
 
 // For demo purposes, uses cookie as "database"
