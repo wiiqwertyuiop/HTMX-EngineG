@@ -17,7 +17,7 @@ func FileServer() http.Handler {
 		if dat, err := os.ReadFile("public" + file); err == nil {
 			w.Write(dat)
 		} else {
-			w.WriteHeader(400)
+			w.WriteHeader(404)
 			renderer.RenderView(w, "404.html")
 		}
 	})
