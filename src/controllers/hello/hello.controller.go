@@ -1,7 +1,7 @@
 package controller
 
 import (
-	c "htmx-engineg/src/common/controller"
+	c "htmx-engineg/src/common/controller-struct"
 	"htmx-engineg/src/common/renderer"
 	"net/http"
 )

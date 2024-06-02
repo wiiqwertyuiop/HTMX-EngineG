@@ -2,7 +2,7 @@ package controller
 
 import (
 	"encoding/json"
-	controller "htmx-engineg/src/common/controller"
+	controller "htmx-engineg/src/common/controller-struct"
 	renderer "htmx-engineg/src/common/renderer"
 	contact "htmx-engineg/src/models/contact"
 	"net/http"
