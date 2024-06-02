@@ -1,58 +1,30 @@
 package controller
 
 import (
-	"encoding/json"
-	controller "htmx-engineg/src/common/controller-struct"
-	renderer "htmx-engineg/src/common/renderer"
-	contact "htmx-engineg/src/models/contact"
+	C "htmx-engineg/src/common/controller-struct"
+	Renderer "htmx-engineg/src/common/renderer"
+	Contact "htmx-engineg/src/models/contact"
 	"net/http"
-	"net/url"
 )
 
-var Controller = controller.Controller{
+var Controller = C.Controller{
 	Route:        "/contact",
 	NeedsReferer: true,
-	Children:     paths,
-}
+	Children: []C.Path{
 
-var paths = []controller.Path{
+		C.Get("/", func(w http.ResponseWriter, r *http.Request) {
+			contact := Contact.GetContact(r)
+			Renderer.RenderView(w, "contact/form.html", contact)
+		}),
 
-	controller.Get("/", func(w http.ResponseWriter, r *http.Request) {
-		renderer.RenderView(w, "contact/form.html", getContact(r))
-	}),
+		C.Get("/edit", func(w http.ResponseWriter, r *http.Request) {
+			contact := Contact.GetContact(r)
+			Renderer.RenderView(w, "contact/editForm.html", contact)
+		}),
 
-	controller.Get("/edit", func(w http.ResponseWriter, r *http.Request) {
-		renderer.RenderView(w, "contact/editForm.html", getContact(r))
-	}),
-
-	controller.Put("/", func(w http.ResponseWriter, r *http.Request) {
-		// Read form data
-		r.ParseForm()
-		newContact := contact.Contact{
-			FirstName: r.FormValue("firstName"),
-			LastName:  r.FormValue("lastName"),
-			Email:     r.FormValue("email"),
-		}
-
-		// Save data to cookie
-		data, _ := json.Marshal(newContact)
-		http.SetCookie(w, &http.Cookie{Name: "contact", Value: url.QueryEscape(string(data))})
-
-		// Render page
-		renderer.RenderView(w, "contact/form.html", newContact)
-	}),
-}
-
-// For demo purposes
-func getContact(r *http.Request) contact.Contact {
-	// Cookie test
-	if cookie, err := r.Cookie("contact"); err == nil {
-		saved := contact.Contact{}
-		decoded, _ := url.QueryUnescape(cookie.Value)
-		json.Unmarshal([]byte(decoded), &saved)
-		return saved
-	}
-	return contact.Contact{
-		FirstName: "Joe", LastName: "Blow", Email: "joe@blow.com",
-	}
+		C.Put("/", func(w http.ResponseWriter, r *http.Request) {
+			newContact := Contact.UpdateContact(w, r)
+			Renderer.RenderView(w, "contact/form.html", newContact)
+		}),
+	},
 }
