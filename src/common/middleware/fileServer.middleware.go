@@ -15,6 +15,10 @@ func FileServer() http.Handler {
 		}
 		file = filepath.Clean(file)
 		if dat, err := os.ReadFile("public" + file); err == nil {
+			file_type := filepath.Ext(file)
+			if file_type == ".css" {
+				w.Header().Add("Content-Type", "text/css")
+			}
 			w.Write(dat)
 		} else {
 			w.WriteHeader(404)
